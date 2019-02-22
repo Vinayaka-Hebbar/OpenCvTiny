@@ -11,9 +11,9 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         externalNativeBuild {
             cmake {
-                cppFlags "-frtti -fexceptions"
+                cppFlags "-DANDROID -frtti -fexceptions"
                 abiFilters 'armeabi-v7a'
-                arguments '-DANDROID_STL=gnustl_shared'
+                arguments '-DANDROID_STL=gnustl_shared', '-DANDROID_NATIVE_API_LEVEL=23'
             }
         }
     }
@@ -21,7 +21,7 @@ android {
     sourceSets {
         main {
             jni.srcDirs = [jni.srcDirs, 'src/main/sdk/native/jni/include']
-            jniLibs.srcDirs = [jniLibs.srcDirs, 'src/sdk/native/3rdparty/libs', 'src//main/sdk/native/libs']
+            jniLibs.srcDirs = [jniLibs.srcDirs, 'src//main/sdk/native/3rdparty/libs', 'src//main/sdk/native/libs']
         }
     }
 
@@ -45,4 +45,6 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.0-alpha4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha4'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'com.google.android.material:material:1.0.0'
 }
