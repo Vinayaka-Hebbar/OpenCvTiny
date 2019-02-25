@@ -11,10 +11,14 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         externalNativeBuild {
             cmake {
-                cppFlags "-DANDROID -frtti -fexceptions"
+                cppFlags "-std=c++11 -frtti -fexceptions"
                 abiFilters 'armeabi-v7a'
-                arguments '-DANDROID_STL=gnustl_shared', '-DANDROID_NATIVE_API_LEVEL=21',"-DANDROID_TOOLCHAIN=clang"
+                arguments '-DANDROID_STL=c++_shared', '-DANDROID_NATIVE_API_LEVEL=21',"-DANDROID_TOOLCHAIN=clang"
             }
+        }
+
+        ndk {
+            abiFilters 'armeabi-v7a'//, 'x86'
         }
     }
 

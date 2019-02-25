@@ -4,7 +4,8 @@ import android.graphics.Bitmap;
 
 public class OpenCv {
     static {
-        System.loadLibrary("opencv_tiny");
+        System.loadLibrary("opencv_core");
+        System.loadLibrary("opencv_imgproc");
         System.loadLibrary("native-lib");
     }
 
